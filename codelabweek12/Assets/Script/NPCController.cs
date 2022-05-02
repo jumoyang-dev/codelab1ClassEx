@@ -6,6 +6,10 @@ using MathUtil;
 public class NPCController : MonoBehaviour
 {
     GameObject player;
+
+    public GameObject nameCanvas;
+    //show how much NPC can see
+    public float sight;
     void Start()
     {
         player = GameObject.Find("Player");
@@ -13,10 +17,12 @@ public class NPCController : MonoBehaviour
 
     void Update()
     {
-        if (Util.CanSeeObj(player, gameObject, 0.9f))
+        if (Util.CanSeeObj(player, gameObject, sight))
         {
             Debug.Log("can see player");
         }
         Util.ObjSide(player, gameObject);
+
+        nameCanvas.transform.forward = Camera.main.transform.forward;
     }
 }
