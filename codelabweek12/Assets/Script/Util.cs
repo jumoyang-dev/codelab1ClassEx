@@ -6,7 +6,7 @@ namespace MathUtil
 {
     public class Util : MonoBehaviour
     {
-        public static bool CanSeeObj(GameObject destination, GameObject origin, float range)
+        public static bool CanSeeObj(GameObject destination, GameObject origin, float range)                            //function to draw a vector between the object and a target
         {
             Vector3 dir = Vector3.Normalize(destination.transform.position - origin.transform.position);
             float angleDis = Vector3.Dot(origin.transform.forward, dir);
@@ -24,7 +24,7 @@ namespace MathUtil
             }
         }
 
-        public static Vector3 ObjSide(GameObject destination, GameObject origin)
+        public static Vector3 ObjSide(GameObject destination, GameObject origin)                                    //function to clamp the maximum vision of the object
         {
             Vector3 dir = Vector3.Normalize(destination.transform.position - origin.transform.position);
             Vector3 crossProd = Vector3.Cross(origin.transform.forward, dir);
